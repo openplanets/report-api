@@ -121,7 +121,7 @@
 	</build>
 	<dependencies>
 		<dependency>
-			<groupId>pt.keep</groupId>
+			<groupId>org.oclc.oai</groupId>
 			<artifactId>oaicat</artifactId>
 			<version>1.5.61</version>
 		</dependency>
