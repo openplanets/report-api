@@ -4,8 +4,8 @@ import javax.xml.bind.JAXBException;
 
 import org.apache.log4j.Logger;
 import org.openarchives.oai._2_0.oai_dc.OaiDcType;
-import org.purl.dc.elements._1.ElementType;
 import org.purl.dc.elements._1.ObjectFactory;
+import org.purl.dc.elements._1.SimpleLiteral;
 import org.w3c.util.DateParser;
 
 public abstract class AbstractEvent implements Event {
@@ -20,22 +20,22 @@ public abstract class AbstractEvent implements Event {
 		logger.debug("getOaiDcEvent()");
 		OaiDcType oaiDcType = new OaiDcType();
 
-		ElementType identifier = new ElementType();
-		identifier.setValue(getIdentifier());
+		SimpleLiteral identifier = new SimpleLiteral();
+		identifier.getContent().add(getIdentifier());
 
 		ObjectFactory dcObjFactory = new ObjectFactory();
 
 		oaiDcType.getTitleOrCreatorOrSubject().add(
 				dcObjFactory.createIdentifier(identifier));
 
-		ElementType type = new ElementType();
-		type.setValue(getType());
+		SimpleLiteral type = new SimpleLiteral();
+		type.getContent().add(getType());
 
 		oaiDcType.getTitleOrCreatorOrSubject().add(
 				dcObjFactory.createType(type));
 
-		ElementType date = new ElementType();
-		date.setValue(DateParser.getIsoDateNoMillis(getDatetime()));
+		SimpleLiteral date = new SimpleLiteral();
+		date.getContent().add(DateParser.getIsoDateNoMillis(getDatetime()));
 
 		oaiDcType.getTitleOrCreatorOrSubject().add(
 				dcObjFactory.createDate(date));

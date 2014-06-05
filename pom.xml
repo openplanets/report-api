@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>eu.scape-project</groupId>
 	<artifactId>report-api</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.2</version>
 	<name>Report API</name>
 	<scm>
 		<url>https://github.com/keeps/report-api</url>
@@ -150,6 +150,11 @@
 			<groupId>commons-configuration</groupId>
 			<artifactId>commons-configuration</artifactId>
 			<version>1.5</version>
+		</dependency>
+		<dependency>
+			<groupId>eu.scape-project.model</groupId>
+			<artifactId>scape-platform-datamodel</artifactId>
+			<version>0.1.9-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 </project>
